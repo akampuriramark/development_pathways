@@ -1,5 +1,6 @@
 ## Akampurira Rugumambaju Mark Development Pathways Coding Test
 This repository contains code fulfiling a Coding Test by Development Pathways. A CRUD Asp.Net Core MVC application using Entity Framework Core plus Unit Mocking tests.
+
 Link to DB Schema Definition: https://dbdiagram.io/d/5ff1576380d742080a34d440
 
 ## HOW TO RUN THE SYSTEM
@@ -16,5 +17,5 @@ Link to DB Schema Definition: https://dbdiagram.io/d/5ff1576380d742080a34d440
     1. Open the Solution File in Visual Studio
     2. Restore Nugget Packages for the solution
     3. Open the appsettings configuration file in Web project and Change the server name to your SQL Server        instance in the Defaultconnectionstring.
-    4. Restore Datatbase backup included
+    4. Restore Database backup included
     5. Click run and test the application
