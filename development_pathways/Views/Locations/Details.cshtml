@@ -1,0 +1,41 @@
+﻿@model development_pathways.Models.Location
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <div class="form-group row">
+        <h1 class="text-info pl-3">Location Details</h1>
+    </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LocationCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LocationName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCounty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubCounty.SubCountyName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.LocationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

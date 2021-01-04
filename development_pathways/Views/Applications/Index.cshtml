@@ -1,0 +1,109 @@
+﻿@model development_pathways.Models.ApplicationViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">List of Applications</h1>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-primary">Create New Application</a>
+        </div>
+    </div>
+    <div class="row pt-4">
+        <form asp-action="Index">
+            <div class="col-12">
+                <div class="form-group row">
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.FullName" class="control-label"></label>
+                        <input asp-for="ApplicationSearchModel.FullName" class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.ApplicationId" class="control-label"></label>
+                        <input asp-for="ApplicationSearchModel.ApplicationId" class="form-control" />
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.CountyNavigation" class="control-label"></label>
+                        <select asp-for="ApplicationSearchModel.County" class="form-control" asp-items="ViewBag.County"></select>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.SubCountyNavigation" class="control-label"></label>
+                        <select asp-for="ApplicationSearchModel.SubCounty" class="form-control" asp-items="ViewBag.SubCounty"></select>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.LocationNavigation" class="control-label"></label>
+                        <select asp-for="ApplicationSearchModel.Location" class="form-control" asp-items="ViewBag.Location"></select>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="ApplicationSearchModel.SubLocationNavigation" class="control-label"></label>
+                        <select asp-for="ApplicationSearchModel.SubLocation" class="form-control" asp-items="ViewBag.SubLocation"></select>
+                    </div>
+                    <div class="col-3">
+                        <br />
+                        <input type="submit" value="Filter" class="btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    @{
+        if (Model.Applications.Count() > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Applications[0].FullName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Applications[0].IdNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Applications[0].InfoCollectedBy)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Applications[0].CountyNavigation)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Applications[0].LocationNavigation)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Applications)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FullName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IdNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.InfoCollectedBy)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CountyNavigation.CountyName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LocationNavigation.LocationName)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.ApplicationId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.ApplicationId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ApplicationId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Application exists</p>
+        }
+
+    }
+</div>

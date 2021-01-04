@@ -1,0 +1,155 @@
+﻿@model development_pathways.Models.Application
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <div class="form-group row">
+        <h1 class="text-info pl-3">Application Details</h1>
+    </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfBirth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfBirth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MaritalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MaritalStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.IdNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostalAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostalAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhysicalAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhysicalAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PoorElderlyPersons)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PoorElderlyPersons)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrphanAndVulnerableChildren)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrphanAndVulnerableChildren)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonsWithDisability)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonsWithDisability)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PersonsInExtremePoverty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PersonsInExtremePoverty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AnyOther)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AnyOther)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.InfoCollectedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.InfoCollectedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DesignationOfCollector)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DesignationOfCollector)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateOfCollection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateOfCollection)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CountyNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CountyNavigation.CountyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LocationNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LocationNavigation.LocationName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCountyNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubCountyNavigation.SubCountyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubLocationNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubLocationNavigation.SubLocationName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.VillageNavigation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.VillageNavigation.VillageName)
+        </dd>
+        @{
+            @*if (Model.TelephoneContacts.Count < 1)
+                {
+                    <dd class="col-sm-10">
+                        @Html.DisplayFor(model => model.VillageNavigation.VillageCode)
+                    </dd>
+                }*@
+            foreach (TelephoneContact phone in Model.TelephoneContacts)
+            {
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => phone.TelephoneContact1)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => phone.TelephoneContact1)
+                </dd>
+            }
+        }
+
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ApplicationId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

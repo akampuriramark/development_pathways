@@ -1,0 +1,36 @@
+﻿@model development_pathways.Models.TelephoneContact
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group row">
+                <h1 class="text-info pl-3"> Add Phone</h1>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TelephoneContact1" class="control-label"></label>
+                <input asp-for="TelephoneContact1" class="form-control" />
+                <span asp-validation-for="TelephoneContact1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApplicationId" class="control-label"></label>
+                <select asp-for="ApplicationId" class="form-control" asp-items="ViewBag.ApplicationId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,41 @@
+﻿@model development_pathways.Models.Village
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div class="form-group row">
+                <h1 class="text-info pl-3"> Add Village</h1>
+            </div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="VillageCode" class="control-label"></label>
+                <input asp-for="VillageCode" class="form-control" />
+                <span asp-validation-for="VillageCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VillageName" class="control-label"></label>
+                <input asp-for="VillageName" class="form-control" />
+                <span asp-validation-for="VillageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubLocationId" class="control-label"></label>
+                <select asp-for="SubLocationId" class="form-control" asp-items="ViewBag.SubLocationId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

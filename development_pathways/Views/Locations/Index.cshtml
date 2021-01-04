@@ -1,0 +1,68 @@
+﻿@model IEnumerable<development_pathways.Models.Location>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h1 class="text-primary">List of Locations</h1>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="Create" class="btn btn-primary">Create New Location</a>
+        </div>
+    </div>
+    @{
+        if (Model.Count() > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LocationCode)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LocationName)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.SubCounty)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LocationCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LocationName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SubCounty.SubCountyName)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.LocationId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.LocationId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.LocationId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Location exists</p>
+        }
+    }
+</div>

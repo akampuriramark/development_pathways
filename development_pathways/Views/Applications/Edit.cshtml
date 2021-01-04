@@ -1,0 +1,128 @@
+﻿@model development_pathways.Models.Application
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div class="form-group row">
+                <h1 class="text-info pl-3">Edit Application</h1>
+            </div>
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="ApplicationId" />
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <input asp-for="FullName" class="form-control" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfBirth" class="control-label"></label>
+                <input asp-for="DateOfBirth" class="form-control" />
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaritalStatus" class="control-label"></label>
+                <input asp-for="MaritalStatus" class="form-control" />
+                <span asp-validation-for="MaritalStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdNumber" class="control-label"></label>
+                <input asp-for="IdNumber" class="form-control" />
+                <span asp-validation-for="IdNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="County" class="control-label"></label>
+                <select asp-for="County" class="form-control" asp-items="ViewBag.County"></select>
+                <span asp-validation-for="County" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubCounty" class="control-label"></label>
+                <select asp-for="SubCounty" class="form-control" asp-items="ViewBag.SubCounty"></select>
+                <span asp-validation-for="SubCounty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location" class="control-label"></label>
+                <select asp-for="Location" class="form-control" asp-items="ViewBag.Location"></select>
+                <span asp-validation-for="Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SubLocation" class="control-label"></label>
+                <select asp-for="SubLocation" class="form-control" asp-items="ViewBag.SubLocation"></select>
+                <span asp-validation-for="SubLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Village" class="control-label"></label>
+                <select asp-for="Village" class="form-control" asp-items="ViewBag.Village"></select>
+                <span asp-validation-for="Village" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PostalAddress" class="control-label"></label>
+                <input asp-for="PostalAddress" class="form-control" />
+                <span asp-validation-for="PostalAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhysicalAddress" class="control-label"></label>
+                <input asp-for="PhysicalAddress" class="form-control" />
+                <span asp-validation-for="PhysicalAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoorElderlyPersons" class="control-label"></label>
+                <input asp-for="PoorElderlyPersons" class="form-control" />
+                <span asp-validation-for="PoorElderlyPersons" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OrphanAndVulnerableChildren" class="control-label"></label>
+                <input asp-for="OrphanAndVulnerableChildren" class="form-control" />
+                <span asp-validation-for="OrphanAndVulnerableChildren" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonsWithDisability" class="control-label"></label>
+                <input asp-for="PersonsWithDisability" class="form-control" />
+                <span asp-validation-for="PersonsWithDisability" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PersonsInExtremePoverty" class="control-label"></label>
+                <input asp-for="PersonsInExtremePoverty" class="form-control" />
+                <span asp-validation-for="PersonsInExtremePoverty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AnyOther" class="control-label"></label>
+                <input asp-for="AnyOther" class="form-control" />
+                <span asp-validation-for="AnyOther" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InfoCollectedBy" class="control-label"></label>
+                <input asp-for="InfoCollectedBy" class="form-control" />
+                <span asp-validation-for="InfoCollectedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DesignationOfCollector" class="control-label"></label>
+                <input asp-for="DesignationOfCollector" class="form-control" />
+                <span asp-validation-for="DesignationOfCollector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DateOfCollection" class="control-label"></label>
+                <input asp-for="DateOfCollection" class="form-control" />
+                <span asp-validation-for="DateOfCollection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedAt" class="control-label"></label>
+                <input asp-for="CreatedAt" class="form-control" />
+                <span asp-validation-for="CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

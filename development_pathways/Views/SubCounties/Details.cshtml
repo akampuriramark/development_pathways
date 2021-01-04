@@ -1,0 +1,41 @@
+﻿@model development_pathways.Models.SubCounty
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <div class="form-group row">
+        <h1 class="text-info pl-3">Sub County Details</h1>
+    </div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCountyCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubCountyCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SubCountyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SubCountyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.County)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.County.CountyName)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SubCountyId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
