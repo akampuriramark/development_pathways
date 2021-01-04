@@ -36,5 +36,16 @@ namespace development_pathways.BusinessLogic
             }
             return result;
         }
+        public IEnumerable<Application> GetAllApplications()
+        {
+            return _context.Applications.Include(a => a.CountyNavigation).Include(a => a.LocationNavigation).Include(a => a.SubCountyNavigation).Include(a => a.SubLocationNavigation).Include(a => a.VillageNavigation);
+
+        }
+
+        public async Task<int> SaveApplication(Application application)
+        {
+            _context.Add(application);
+            return await _context.SaveChangesAsync();
+        }
     }
 }

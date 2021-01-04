@@ -45,7 +45,7 @@ namespace development_pathways.Controllers
             ApplicationViewModel mymodel = new ApplicationViewModel();
 
             var business = new ApplicationBusinessLogic(_context);
-            var model = _context.Applications.Include(a => a.CountyNavigation).Include(a => a.LocationNavigation).Include(a => a.SubCountyNavigation).Include(a => a.SubLocationNavigation).Include(a => a.VillageNavigation);
+            var model = business.GetAllApplications();
             mymodel.Applications = model.ToList();
             mymodel.ApplicationSearchModel = new ApplicationSearchModel();
 
@@ -102,8 +102,8 @@ namespace development_pathways.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(application);
-                await _context.SaveChangesAsync();
+                var business = new ApplicationBusinessLogic(_context);
+                await business.SaveApplication(application);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["County"] = new SelectList(_context.Counties, "CountyId", "CountyName", application.County);
