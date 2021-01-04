@@ -1,8 +1,8 @@
 ## Akampurira Rugumambaju Mark Development Pathways Coding Test
 This repository contains code fulfiling a Coding Test by Development Pathways. A CRUD Asp.Net Core MVC application using Entity Framework Core plus Unit Mocking tests.
+Link to DB Schema Definition: https://dbdiagram.io/d/5ff1576380d742080a34d440
 
 ## HOW TO RUN THE SYSTEM
-    Link to DB Schema Definition: https://dbdiagram.io/d/5ff1576380d742080a34d440
 
 ## REQUIREMENTS TO RUN THE APLICATION
     1. Visual Studio IDE 2019
